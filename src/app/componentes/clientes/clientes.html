@@ -1,0 +1,104 @@
+<!-- Barra Superior -->
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start" (click)="butonRegresar()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Clientes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <ion-avatar>
+                    <ion-img src="assets/img/clientes.png"></ion-img>
+                </ion-avatar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h1 class="ion-text-center">Informacion del Cliente</h1>
+            </ion-col>
+        </ion-row>
+        <ion-toolbar>
+            <ion-searchbar type="text" debounce="500" (ionBlur)="buscarClientes($event)" [(ngModel)]="entradaBusquedaCliente" placeholder="Cliente*"></ion-searchbar>
+        </ion-toolbar>
+        <ion-row>
+            <ion-col>
+                <ion-list *ngFor="let dato of datosCliente">
+                    <ion-item>
+                        <ion-label position="floating">Cliente</ion-label>
+                        <ion-input type="text" [value]="dato.Cliente" disabled colo="danger"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-input type="text" [value]="dato.NombreCompleto" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">RTN</ion-label>
+                        <ion-input type="text" [value]="dato.RTN" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Identidad</ion-label>
+                        <ion-input type="text" [value]="dato.Identidad" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Telefono</ion-label>
+                        <ion-input type="text" [value]="dato.Telefono" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Celular</ion-label>
+                        <ion-input type="text" [value]="dato.Celular" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Correo</ion-label>
+                        <ion-input type="text" [value]="dato.Correo" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">NombreNegocio</ion-label>
+                        <ion-input type="text" [value]="dato.NombreNegocio" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Direccion</ion-label>
+                        <ion-input type="text" [value]="dato.Direccion" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Ciudad</ion-label>
+                        <ion-input type="text" [value]="dato.Ciudad" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Municipio</ion-label>
+                        <ion-input type="text" [value]="dato.Municipio" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Departamento</ion-label>
+                        <ion-input type="text" [value]="dato.Departamento" disabled></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!-- fab placed to the top end -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="add" (click)="presentModalAddCliente()"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>
+
+
+<!-- Barra inferior -->
+<ion-tab-bar slot="bottom">
+    <ion-tab-button tab="regresar" (click)="butonRegresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="usuario">
+        <!-- <ion-icon name="person"></ion-icon> -->
+    </ion-tab-button>
+    <ion-tab-button tab="opciones">
+        <!-- <ion-icon name="ellipsis-vertical"></ion-icon> -->
+    </ion-tab-button>
+</ion-tab-bar>

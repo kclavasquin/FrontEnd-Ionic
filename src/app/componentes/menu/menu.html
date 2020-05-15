@@ -1,0 +1,40 @@
+<!-- Barra Superior -->
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-title>Rosy Mayoreo</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="butonRegresar()">
+                <ion-icon name="exit-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<!-- Contenido -->
+<ion-content>
+    <ion-list>
+        <ion-item *ngFor="let menu of menus" (click)="OpcionMenu(menu.id,menu.opcion)">
+            <ion-avatar slot="start">
+                <ion-img [src]="menu.imageURL"></ion-img>
+            </ion-avatar>
+            <ion-label>
+                {{menu.promt}}
+            </ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+    </ion-list>
+</ion-content>
+
+
+<!-- Barra inferior -->
+<ion-tab-bar slot="bottom">
+    <ion-tab-button tab="login">
+        <ion-icon name="arrow-back-outline" (click)="butonRegresar()"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="usuario">
+        <ion-icon name="person" (click)="tagUsuario()"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="opciones">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+    </ion-tab-button>
+</ion-tab-bar>

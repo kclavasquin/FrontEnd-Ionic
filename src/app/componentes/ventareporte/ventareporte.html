@@ -1,0 +1,71 @@
+<!-- Barra Superior -->
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start" (click)="butonRegresar()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Reporte</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <ion-avatar>
+                    <ion-img src="assets/img/reporte-ventas.png"></ion-img>
+                </ion-avatar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h1 class="ion-text-center">Reporte de Ventas</h1>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                    <ion-label>Fecha Inical</ion-label>
+                    <ion-datetime placeholder="Selecciona la fecha" displayFormat="DD-MM-YYYY" [(ngModel)]="fechaIni"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-icon name="calendar-outline" slot="start"></ion-icon>
+                    <ion-label>Fecha Final</ion-label>
+                    <ion-datetime placeholder="Selecciona la fecha" displayFormat="DD-MM-YYYY" [(ngModel)]="fechaFin"></ion-datetime>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-button style="margin-bottom: 15px;" slot="end" (click)="datos()">
+                        <ion-icon name="add-circle" slot="start"></ion-icon>Generar
+                    </ion-button>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+</ion-content>
+
+
+
+<!-- Barra inferior -->
+<ion-tab-bar slot="bottom">
+    <ion-tab-button tab="regresar" (click)="butonRegresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="usuario">
+    </ion-tab-button>
+    <ion-tab-button tab="opciones">
+    </ion-tab-button>
+</ion-tab-bar>

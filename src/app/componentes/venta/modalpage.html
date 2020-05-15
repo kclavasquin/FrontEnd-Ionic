@@ -1,0 +1,68 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-title>Informacion Del Cliente</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()" color="primary">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!--info-Cliente-->
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-list *ngFor="let datoCliente of datoCliente">
+                    <ion-item>
+                        <ion-label>Cliente</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.Cliente}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Nombre Completo</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.NombreCompleto}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>RTN</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.RTN}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Identidad</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.Identidad}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Telefono</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.Telefono}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Celular</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.Celular}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Nombre Negocio</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.NombreNegocio}}</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Direccion</ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{datoCliente.Direccion}}</ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,67 @@
+<!--header-->
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Login Rosy Mayoreo
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<!--Body-->
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col size-md="4" offset-md="4">
+                <ion-card>
+                    <!--card-header-->
+                    <ion-card-header color="secondary">
+                        <ion-card-title>
+                            Iniciar Secion
+                        </ion-card-title>
+                    </ion-card-header>
+                    <!--card-body-->
+                    <ion-card-content>
+                        <ion-item class="ion-margin-vertical">
+                            <ion-label position="floating">
+                                Usuario
+                            </ion-label>
+                            <ion-input type="text" [(ngModel)]='usuario' (click)="OcultaMsg()" name='usuario'></ion-input>
+                        </ion-item>
+                        <ion-item class="ion-margin-vertical">
+                            <ion-label position="floating">
+                                Password
+                            </ion-label>
+                            <ion-input type="password" name='password' [(ngModel)]='password' (click)="OcultaMsg()"></ion-input>
+                        </ion-item>
+                        <ion-button type="submit" (click)='InicioSecion()' expand="block">
+                            <ion-icon name="person-circle-outline" slot="start"> </ion-icon>Iniciar
+                        </ion-button>
+                    </ion-card-content>
+                    <!--card-footer-->
+                    <ion-card-header color="secondary">
+                        <ion-card-subtitle>
+                            {{fechas | date:"medium" }}
+                        </ion-card-subtitle>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <!--Muestra el mensage-->
+        <ion-row>
+            <ion-col size-md="4" offset-md="4">
+                <ion-card>
+                    <ion-card-header *ngFor="let msg of msg" [hidden]="hideDatos" class="msg" color="danger">
+                        <ion-card-title>
+                            {{msg.message}}
+                        </ion-card-title>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

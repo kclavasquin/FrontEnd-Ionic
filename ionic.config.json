@@ -1,5 +1,8 @@
 {
   "name": "RosyMovil",
-  "integrations": {},
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
   "type": "angular"
 }

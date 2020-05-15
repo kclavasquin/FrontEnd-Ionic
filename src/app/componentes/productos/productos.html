@@ -1,0 +1,76 @@
+<!-- Barra Superior -->
+<ion-header>
+    <ion-toolbar color="secondary">
+        <ion-buttons slot="start" (click)="butonRegresar()">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>Productos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <ion-avatar>
+                    <ion-img src="assets/img/productos.png"></ion-img>
+                </ion-avatar>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <h1 class="ion-text-center">Buscar Producto</h1>
+            </ion-col>
+        </ion-row>
+        <ion-toolbar>
+            <ion-searchbar type="text" debounce="500" (ionBlur)="buscarProducto($event)" [(ngModel)]="entradaBusquedaProducto" placeholder="Producto*"></ion-searchbar>
+            <ion-list *ngFor="let productos of Productos">
+                <ion-item (click)="productoSeleccionado(productos.Producto)">
+                    <ion-label>{{productos.NombreProducto}}</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-toolbar>
+        <ion-row>
+            <ion-col>
+                <ion-list *ngFor="let dato of Producto">
+                    <ion-item>
+                        <ion-label position="floating">Producto</ion-label>
+                        <ion-input type="text" [value]="dato.Producto" disabled colo="danger"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Nombre</ion-label>
+                        <ion-input type="text" [value]="dato.NombreProducto" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Categoria</ion-label>
+                        <ion-input type="text" [value]="dato.Categoria+' '+dato.NombreCategoria" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Nivel Producto</ion-label>
+                        <ion-input type="text" [value]="dato.NombreTipoNivelProducto" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Promedio Pcs.</ion-label>
+                        <ion-input type="text" [value]="dato.ConteoPromedio" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label color="danger" position="floating">Precio de Venta</ion-label>
+                        <ion-input style="font-weight: bold;color:red;" type="text" [value]="'P1: '+dato.Precio1+'    P2: '+dato.Precio2+'    P3: '+dato.Precio3+'    P4: '+dato.Precio4" disabled></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+
+<!-- Barra inferior -->
+<ion-tab-bar slot="bottom">
+    <ion-tab-button tab="regresar" (click)="butonRegresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="usuario">
+    </ion-tab-button>
+    <ion-tab-button tab="opciones">
+    </ion-tab-button>
+</ion-tab-bar>

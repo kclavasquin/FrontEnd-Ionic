@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+        <h5>{{' Producto: '}}{{LS_Producto}}</h5>
+        <h5>{{LS_Nombre}}</h5>
+        <h5>{{' Precio: '}}{{LN_Precio | currency:"L."}}</h5>
+        <ion-buttons slot="end">
+            <ion-button (click)="cerrarmodal()">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!--Precios disponibles-->
+    <ion-header>
+        <ion-toolbar>
+            <ion-item color="danger">
+                <ion-buttons>
+                    <ion-button (click)="nuevoprecio(LN_Precio1)">{{LN_Precio1 | currency:"L."}}</ion-button>
+                    <ion-button (click)="nuevoprecio(LN_Precio2)">{{LN_Precio2 | currency:"L."}}</ion-button>
+                    <ion-button (click)="nuevoprecio(LN_Precio3)">{{LN_Precio3 | currency:"L."}}</ion-button>
+                    <ion-button (click)="nuevoprecio(LN_Precio4)">{{LN_Precio4 | currency:"L."}}</ion-button>
+                </ion-buttons>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nuevo Precio</ion-label>
+                <ion-input type="number" [(ngModel)]="LN_NuevoPrecio"></ion-input>
+                <ion-icon name="pricetags-outline" slot="end" (click)="nuevoprecio(LN_NuevoPrecio)"></ion-icon>
+            </ion-item>
+        </ion-toolbar>
+    </ion-header>
+
+    <!--detalle etiquetas-->
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-title class="ion-text-center">Etiquetas</ion-title>
+                    <ion-avatar slot="end" (click)="eliminarEtiquetaTodas()">
+                        <ion-img src="assets/img/trash-red.png"></ion-img>
+                    </ion-avatar>
+                    <!-- <ion-icon name="trash" slot="end" (click)="eliminarEtiquetaTodas()"></ion-icon> -->
+                </ion-item>
+                <ion-list *ngFor="let Etiquetas of LO_Etiqueta">
+                    <ion-item>
+                        <ion-label>{{Etiquetas.Etiqueta}}</ion-label>
+                        <ion-icon name="trash-outline" slot="end" (click)="eliminarEtiqueta(Etiquetas.Etiqueta)"></ion-icon>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<!--Totales-->
+<ion-toolbar>
+    <ion-tab-bar color="secondary">
+        <ion-tab-button tab="cantidad">
+            <h3 style="font-weight: bold;">{{LN_TotalEtiquetas}}</h3>
+        </ion-tab-button>
+        <ion-tab-button tab="nombre">
+            <ion-label>{{''}}</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="precio">
+            <h3 style="font-weight: bold;">{{LN_TotalPrecios | currency:"L."}}</h3>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-toolbar>

@@ -1,0 +1,26 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-icon name="search-sharp"></ion-icon>
+        </ion-buttons>
+        <ion-title>Buscando Cliente</ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="dismiss()" color="primary">Close</ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!--info-Cliente-->
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-list *ngFor="let dato of dato">
+                    <ion-item (click)="clienteSeleccionado(dato.Cliente)">
+                        <ion-label>{{dato.Cliente}} {{" "}} {{dato.NombreCompleto}}</ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

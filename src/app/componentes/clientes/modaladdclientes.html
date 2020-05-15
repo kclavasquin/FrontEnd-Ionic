@@ -1,0 +1,94 @@
+<ion-header translucent>
+    <ion-toolbar>
+        <ion-avatar slot="start">
+            <ion-img src="assets/img/clientes.png"></ion-img>
+        </ion-avatar>
+        <ion-title>Cliente Nuevo</ion-title>
+        <ion-button style="margin-bottom: 15px;" slot="end" (click)="addCliente()">
+            <ion-icon name="add-circle" slot="start"></ion-icon>Add
+        </ion-button>
+        <ion-button color="danger" style="margin-bottom: 15px;" slot="end" fill="outline" (click)="cerrarModal()">
+            <ion-icon name="exit" slot="start"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <!--info-Cliente-->
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Primer Nombre*</ion-label>
+                        <ion-input type="text" [(ngModel)]="PrimerNombre"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Segundo Nombre*</ion-label>
+                        <ion-input type="text" [(ngModel)]="SegundoNombre"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Primer Apellido*</ion-label>
+                        <ion-input type="text" [(ngModel)]="PrimerApellido"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Segundo Apellidos*</ion-label>
+                        <ion-input type="text" [(ngModel)]="SegunApellido"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">RTN*</ion-label>
+                        <ion-input type="text" [(ngModel)]="RTN"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Identidad*</ion-label>
+                        <ion-input type="text" [(ngModel)]="Identidad"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Telefono*</ion-label>
+                        <ion-input type="text" [(ngModel)]="Telefono"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Celular*</ion-label>
+                        <ion-input type="text" [(ngModel)]="Celular"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Correo*</ion-label>
+                        <ion-input type="email" [(ngModel)]="Correo"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">NombreNegocio*</ion-label>
+                        <ion-input type="text" [(ngModel)]="NombreNegocio"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating" color="danger">Direccion*</ion-label>
+                        <ion-textarea [(ngModel)]="Direccion"></ion-textarea>
+                    </ion-item>
+                    <ion-toolbar>
+                        <ion-searchbar type="text" debounce="500" (ionInput)="buscarCiudades($event)" [(ngModel)]="ciudadbusqueda" placeholder="Buscar Ciudades"></ion-searchbar>
+                        <ion-list *ngFor="let ciudades of buscarCiudad">
+                            <ion-item (click)="seleccionarCiudad(ciudades)">
+                                <ion-label>{{ciudades.Ciudad}}</ion-label>
+                                <ion-label>{{ciudades.Municipio}}</ion-label>
+                                <ion-label>{{ciudades.Departamento}}</ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </ion-toolbar>
+                    <ion-item>
+                        <ion-label position="floating">Ciudad</ion-label>
+                        <ion-input type="text" [(ngModel)]="Ciudad" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Municipio</ion-label>
+                        <ion-input type="text" [(ngModel)]="Municipio" disabled></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Departamento</ion-label>
+                        <ion-input type="text" [(ngModel)]="Departamento" disabled></ion-input>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>

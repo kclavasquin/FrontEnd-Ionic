@@ -1,0 +1,128 @@
+<!-- Barra Superior -->
+<ion-toolbar color="primary">
+    <ion-buttons slot="start" (click)="butonRegresar()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>Venta</ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="facturar()">
+            <p style="margin-right: 1.5em;">Total: </p>
+            <ion-label style="margin-right: 60px;">{{totalFactura | currency:"L."}}</ion-label>
+            <ion-icon name="cart" (click)="facturar()"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+
+
+<!--Body-->
+<ion-content fullscreen="true">
+
+    <!--info-Cliente-->
+    <ion-toolbar>
+        <ion-searchbar type="text" debounce="500" (ionBlur)="buscarCliente($event)" placeholder="Cliente*" [(ngModel)]="inputBuscar"></ion-searchbar>
+    </ion-toolbar>
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-title class="ion-text-center">
+                    <h5>{{tituloCliente}}</h5>
+                </ion-title>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-list *ngFor="let Cliente of busquedaCliente">
+                    <ion-item (click)="clienteSelected(Cliente)">
+                        <h6>{{Cliente.Cliente}}{{" "}}{{Cliente.NombreCompleto}}</h6>
+                    </ion-item>
+                </ion-list>
+                <ion-list *ngFor="let clienteS of clienteSeleccionado">
+                    <ion-item (click)="presentModal()">
+                        <h6>{{clienteS.Cliente}}{{" "}}{{clienteS.NombreCompleto}}</h6>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+    <!--Cantura etiqueta-->
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item color="primary">
+                        <ion-icon name="barcode-outline" slot="start"></ion-icon>
+                        <ion-buttons>
+                            <ion-button (click)="lectarCode()">Lectar Etiqueta</ion-button>
+                        </ion-buttons>
+                        <ion-icon name="camera-outline" slot="end"></ion-icon>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+            <ion-col>
+                <ion-list>
+                    <ion-item>
+                        <ion-label position="floating" color="primary">Ingrese Etiqueta</ion-label>
+                        <ion-input type="text" [(ngModel)]="entradaEtiqueta"></ion-input>
+                        <ion-icon name="arrow-down-outline" slot="end" (click)="ingresadEtiqueta()"></ion-icon>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <!--Detalle producto-->
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title class="ion-text-center" size="large">Detalle del Producto</ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-header>
+        <ion-toolbar>
+            <ion-tab-bar color="primary">
+                <ion-tab-button tab="cantidad">
+                    <h3>Cantidad</h3>
+                </ion-tab-button>
+                <ion-tab-button tab="nombre">
+                    <h3>Nombre</h3>
+                </ion-tab-button>
+                <ion-tab-button tab="precio">
+                    <h3>Precio</h3>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-list *ngFor="let Producto of producto">
+                    <ion-item (click)="presentModalproducto(Producto)">
+                        <p style="margin-right: 1.5em;">{{Producto.Cantidad}}</p>
+                        <p style="margin-right: 60px;">{{Producto.Nombre}}</p>
+                        <p>{{Producto.Precio | currency:"L."}}</p>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+
+
+
+<!--Totales-->
+<ion-toolbar>
+    <ion-tab-bar color="primary">
+        <ion-tab-button tab="cantidad">
+            <h3 style="font-weight: bold;">{{totalCantidad}}</h3>
+        </ion-tab-button>
+        <ion-tab-button tab="nombre">
+            <ion-label>{{''}}</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="precio">
+            <h3 style="font-weight: bold;">{{totalFactura | currency:"L."}}</h3>
+        </ion-tab-button>
+    </ion-tab-bar>
+</ion-toolbar>
