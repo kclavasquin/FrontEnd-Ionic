@@ -17,6 +17,8 @@ import {ModalPage} from './componentes/venta/modalpage';
 import {modalproducto} from './componentes/venta/modalproducto'
 import {ventareporte} from './componentes/ventareporte/ventareporte'
 
+
+//rutas del sistema
 const routes: Routes = [
   {  path : 'IniciaLogin',component:SingInComponent},
   {  path : 'Menu', component:MenuComponent,canActivate:[AuthGuardService]},
